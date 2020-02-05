@@ -9,7 +9,7 @@ import time
 import sys
 import pandas as pd
 
-df = pd.read_csv("/Users/liruixuan/program/stock/stock.csv", dtype = object)
+df = pd.read_csv("./stock.csv", dtype = object)
 
 
 # In[7]:
