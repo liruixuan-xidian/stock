@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
-
-
 import tushare as ts
 import time
 import sys
@@ -46,10 +43,6 @@ def send_message(message):
         to=secret_vari.my_telephone_num,
         from_=secret_vari.twilio_telephone_num,
         body=message)
-
-
-# In[10]:
-
 
 #获取实时股票行情， 持有股票日跌幅超过3%， 短信提醒卖出
 import easyquotation
@@ -132,14 +125,14 @@ def run_parent():
             running = True
 
         # 在时间段内则开启子进程
-        if running and child_process is None:
+        if running and child_process is False:
             print("启动子进程")
             child_process = multiprocessing.Process(target=run_child)
             child_process.start()
             print("子进程启动成功")
 
         # 非记录时间则退出子进程
-        if not running and child_process is not None:
+        if not running and child_process is True:
             print("关闭子进程")
             sell_code = []
             child_process.terminate()
