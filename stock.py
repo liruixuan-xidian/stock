@@ -88,6 +88,7 @@ def TradingDay():
 import multiprocessing
 from time import sleep
 import datetime
+from dateutil import tz, zoneinfo
 
 # 程序运行时间在上午9:25 到中午 11:30  下午13:30 到 下午 15:00
 DAY_START = datetime.time(9,25)
@@ -115,9 +116,10 @@ def run_parent():
     print("启动父进程")
 
     child_process = False  # 是否存在子进程
+    tz_sh = tz.gettz('Asia/Shanghai')
 
     while True:
-        current_time = datetime.datetime.now().time()
+        current_time = datetime.datetime.now(tz=tz_sh).time()
 
         running = False  # 子进程是否可运行
         if DAY_START <= current_time <= DAY_END or NIGHT_END >= current_time >= NIGHT_START:
