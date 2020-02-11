@@ -95,7 +95,7 @@ DAY_START = datetime.time(9,25)
 DAY_END = datetime.time(11, 30)
 
 NIGHT_START = datetime.time(13, 30)
-NIGHT_END = datetime.time(23, 59)
+NIGHT_END = datetime.time(15, 00)
 sell_code = []
 code_list = []
 message_number = 0
